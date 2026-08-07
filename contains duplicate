@@ -1,0 +1,20 @@
+## Given an integer array nums, return true if any value appears more than once in the array, otherwise return false.
+
+## we use a hashset to compare the values, so that we don't have to go one by one to compare each value with every other value
+## by sorting, it'll allow us to minimize the time needed if there is a duplicate
+## for each item in nums, we first check if it's in the hashset already. if it is, then return true
+## if not, we add it to the hashset and keep going til the loop is done
+## the loop will then return false
+
+class Solution:
+    def hasDuplicate(self, nums: List[int]) -> bool:
+
+      nums.sort()
+      hashset = set()
+  
+      for n in nums:
+          if n in hashset:
+              return True
+          hashset.add(n)
+      
+      return False
